@@ -1,0 +1,4 @@
+.vscode/*
+climatempopy-env/*
+./tests/tests_properties.json
+*/__pycache__/*
