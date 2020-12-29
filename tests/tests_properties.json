@@ -1,4 +1,8 @@
 {
     "token" : "48101b72c6b7c4c6b8fbface0835e91a",
-    "city_id" : 3477
+    "city_id" : 3477,
+    "aracaju_coords" : "-10.981982, -37.053425",
+    "city_name": "ARACAJU",
+    "state_abreviation": "SE",
+    "country_abreviation": "BR"
 }
