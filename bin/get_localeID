@@ -18,7 +18,7 @@ lon = str(sys.argv[3])
 async def main():
     async with ClientSession() as session:
         climatempo = ClimaTempo(session, your_climatempo_token)
-        locale = climatempo.get_locale_from_coords(lat, lon)
+        locale = await climatempo.get_locale_from_coords(lat, lon)
     print(locale)
 
 loop = asyncio.get_event_loop()

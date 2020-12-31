@@ -17,9 +17,9 @@ locale_id = str(sys.argv[2])
 async def main():
     async with ClientSession() as session:
         climatempo = ClimaTempo(session, your_climatempo_token, locale_id)
-        climatempo.update_current_weather()
-        climatempo.update_72_hours_forecast()
-        climatempo.update_15_days_forecast()
+        await climatempo.update_current_weather()
+        await climatempo.update_72_hours_forecast()
+        await climatempo.update_15_days_forecast()
     print(climatempo.current)
     print(climatempo.forecast_72_hours)
     print(climatempo.forecast_15_days)

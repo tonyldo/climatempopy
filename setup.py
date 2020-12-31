@@ -6,8 +6,8 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="climatempopy", 
-    version="0.0.1",
-    scripts=['bin/get_weather_georeferenced','bin/get_weather_by_localeID','bin/get_localeID'],
+    version="0.0.6",
+    scripts=["bin/get_weather_georeferenced","bin/get_weather_by_localeID","bin/get_localeID"],
     author="Antonio Campos",
     author_email="tonyldo@gmail.com",
     description="A Clima Tempo API Python Wrapper",

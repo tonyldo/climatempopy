@@ -50,7 +50,8 @@ class ClimaTempo:
         self.forecast_15_days = await self.get_15_days_forecast()
     
     async def set_locale_id_from_coords(self,latitude,longitude):
-        self.locale_id= await self.get_locale_from_coords(self,latitude,longitude)
+        locale = await self.get_locale_from_coords(latitude,longitude)
+        self.locale_id= locale[0].id
 
     async def get_locale_from_coords(self,latitude,longitude):
         location=common.get_address("climatempopy_lib",coords='{},{}'.format(latitude,longitude))
