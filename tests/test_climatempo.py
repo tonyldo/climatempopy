@@ -46,3 +46,14 @@ async def test_get_locales():
         climatempo = ClimaTempo(websession, properties['token'])
         locale = await climatempo.get_locales(city_name,state,country)
     assert len(locale)>0
+    
+@pytest.mark.asyncio
+async def test_get_locale_from_coord():
+    with open('./tests/tests_properties.json') as json_file:
+        properties = json.load(json_file)
+    coords=properties['aracaju_coords']
+    latitude,longitude = coords.split(',')
+    async with ClientSession() as websession:
+        climatempo = ClimaTempo(websession, properties['token'])
+        locale = await climatempo.get_locale_from_coords(latitude,longitude)
+    assert len(locale)==1

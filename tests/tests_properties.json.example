@@ -1,6 +1,5 @@
 {
-    #Rename this file to 'tests_properties.json' and insert your Clima Tempo API to run all test
-    "token" : "PUT_YOUR_CLIMA_TEMPO_API_TOKEN_HERE",
+    "token" : "Rename this file to 'tests_properties.json' and insert your Clima Tempo API to run all test",
     "city_id" : 3477,
     "aracaju_coords" : "-10.981982, -37.053425",
     "city_name": "ARACAJU",

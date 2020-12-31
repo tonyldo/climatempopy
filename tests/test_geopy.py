@@ -1,16 +1,19 @@
-from geopy.geocoders import Nominatim
+from  climatempopy import common
 import json
 
 user_agent_str = "climatempopy-test"
 
 def test_geopy():
-    geolocator = Nominatim(user_agent=user_agent_str)
     with open('./tests/tests_properties.json') as json_file:
         properties = json.load(json_file)
-    coords=properties['aracaju_coords']
-    location = geolocator.reverse(coords)
-    assert location.raw['address']['city']=='Aracaju'
-    assert location.raw['address']['state']=='Sergipe'
-    assert location.raw['address']['suburb'] =='Atalaia'
+    location = common.get_address(user_agent_str,properties['aracaju_coords'])
+    assert location.address.city=='Aracaju'
+    assert location.address.state=='Sergipe'
+    assert location.address.suburb =='Atalaia'
+
+def test_get_state_abbreviation():
+    assert common.get_state_abbreviation('Sergipe') == common.get_state_abbreviation('SERGIPE') 
+    assert common.get_state_abbreviation('rondonia') == common.get_state_abbreviation('Rondônia')
+
 
 

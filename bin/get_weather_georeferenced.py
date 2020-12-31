@@ -1,20 +1,24 @@
-# ClimaTempoPy
-## A Clima Tempo API Python Wrapper
-### Retrieving Brazilian current weather and forecast prevision from Clima Tempo site.
+#!/usr/bin/env python
 
-1. Example
-```
 import sys
 from climatempopy import ClimaTempo
 from aiohttp import ClientSession
 import asyncio
 
-YOUR_CLIMA_TEMPO_TOKEN =''
-LOCALE_ID = ''
+'''
+To call this script:
+$ pip3 install climatempopy
+$ get_weather_georeferenced YOUR_CLIMATEMPO_TOKEN LAT LON 
+'''
+
+your_climatempo_token = str(sys.argv[1])
+lat = str(sys.argv[2])
+lon = str(sys.argv[3])
 
 async def main():
     async with ClientSession() as session:
-        climatempo = ClimaTempo(session, YOUR_CLIMA_TEMPO_TOKEN , LOCALE_ID)
+        climatempo = ClimaTempo(session, your_climatempo_token)
+        climatempo.set_locale_id_from_coords(lat,lon)
         climatempo.update_current_weather()
         climatempo.update_72_hours_forecast()
         climatempo.update_15_days_forecast()
@@ -24,11 +28,3 @@ async def main():
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
-```
-
-2. Scripts of this lib
-```
-To call this script:
-$ pip3 install climatempopy
-$ get_localeID YOUR_CLIMATEMPO_TOKEN LAT LON 
-```
